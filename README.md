@@ -9,11 +9,16 @@ Members:
 
 Research Question(s):
 -Is rushing or passing more effective in winning NFL games?
+How much does average WR separation correlate to yardage?
 
 Primary Datasets:
 
 -nflverse_acquire.ipynb -> 
-    - Play by Play
+    - Play by Play data for 2025, can look for other seasons
+    - Shape is (48771, 372)
+    - Each row is one play of a game
+    - Notable columns:
+        posteam (team with possession), yards_gained, success, passer, rusher, receiver
     
 -player_stats_acquisition.ipynb -> nflverse - https://github.com/nflverse/nflreadpy
     - Player Weekly Stats
@@ -25,4 +30,3 @@ Primary Datasets:
 Secondary Datasets:
 -
 -
-
