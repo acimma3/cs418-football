@@ -29,7 +29,7 @@ Primary Datasets:
 
 Secondary Datasets:
 
--team_stats.ipynb 
+- team_stats.ipynb 
     - Team stats for the 2025 regular season
     - Shape is (32, 136)
     - Each row is one team that played in the 2025 regular 
