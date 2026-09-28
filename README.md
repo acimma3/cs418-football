@@ -28,5 +28,9 @@ Primary Datasets:
         player_name, team, passing_yards, rushing_yards
 
 Secondary Datasets:
--
+-team_stats.ipynb 
+    - Team stats for the 2025 regular season
+    - Shape is (32, 136)
+    - Each row is one team that played in the 2025 regular 
+    - Notable columns: passing_yards, rushing_yards, passing_tds, rushing_tds
 -
