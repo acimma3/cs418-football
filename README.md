@@ -4,7 +4,7 @@ cs 418 football group
 Members:
 -Antonio
 -John Leveille
--Kevin
+-Kevin Cox
 -Nishant
 
 Research Question(s):
