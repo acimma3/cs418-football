@@ -9,7 +9,7 @@ cs 418 football group
 
 # Research Question(s):
 - Is rushing or passing more effective in winning NFL games?
-- How much does average WR separation correlate to yardage?
+- How much does average WR separation correlate with receiving yardage?
 
 # Primary Datasets:
 - nflverse_acquire.ipynb -> 
@@ -32,4 +32,19 @@ cs 418 football group
     - Shape is (32, 136)
     - Each row is one team that played in the 2025 regular 
     - Notable columns: passing_yards, rushing_yards, passing_tds, rushing_tds
--
+- nextgen_receiving_acquisition.ipynb -> NFL Next Gen Stats Receiving Data
+    - Data acquired using nflreadpy
+    - 2025 regular season
+    - Focused on Wide Receivers (WR)
+    - Raw dataset shape: (1402, 23)
+    - Filtered WR weekly observations: 888
+    - Final cleaned dataset shape: (887, 19)
+    - Notable columns:
+        player_gsis_id, player_display_name, team_abbr, week,
+        avg_separation, avg_cushion, avg_intended_air_yards,
+        targets, receptions, catch_percentage, yards, avg_yac,
+        avg_expected_yac, avg_yac_above_expectation
+    - Created variables:
+        yards_per_target, yards_per_reception
+    - Used to investigate how average WR separation relates to receiving yardage
+    - Cleaned dataset saved as nextgen_wr_receiving_2025.csv
