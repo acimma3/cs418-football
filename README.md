@@ -9,6 +9,7 @@ cs 418 football group
 
 # Research Question(s):
 - Is rushing or passing more effective in winning NFL games?
+- Do the stats suggest punting or going for it on 4th down?
 - How much does average WR separation correlate with receiving yardage?
 
 # Primary Datasets:
