@@ -7,10 +7,10 @@ cs 418 football group
 - Kevin Cox
 - Nishant
 
-# Research Question(s):
-- Is rushing or passing more effective in winning NFL games?
-- Do the stats suggest punting or going for it on 4th down?
-- How much does average WR separation correlate with receiving yardage?
+# Research Questions (Revised):
+- Q1: How do rushing and passing success rates individually correlate with NFL team win percentages?
+- Q2: How do yards to go and field position affect the average EPA of punting versus going for it on fourth down?
+- Q3: How does average WR separation correlate with receiving yards per target, and does this relationship change based on route depth?
 
 # Primary Datasets:
 - nflverse_acquire.ipynb -> 
@@ -49,3 +49,10 @@ cs 418 football group
         yards_per_target, yards_per_reception
     - Used to investigate how average WR separation relates to receiving yardage
     - Cleaned dataset saved as nextgen_wr_receiving_2025.csv
+
+# Eda:
+- Reference [Eda](eda.ipynb)
+
+# Datasheet:
+- Reference [Datasheet](DATASHEET.md)
+- Our biggest limitation is that we can only include plays that were properly recorded by nflverse and NFL Next Gen Stats. We have verified that all 32 NFL teams have data from all 18 weeks of regular season play. However, we cannot guarantee that all stats from those games are correct or complete.
