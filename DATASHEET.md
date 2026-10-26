@@ -35,3 +35,50 @@
 - Access Frame: All wide receiver plays recorded in the 2025 NFL Next Gen Stats receiving dataset. Contains 888 observations as evidenced in datasheet_checks.ipynb.
 - Sample: 887 observations from the access frame that have valid separation, receiving yards, targets, and intended air yards values. Only 1 play was excluded from the access frame due to missing receiving yards.
 - Notes: Almost all of the access frame is included in our sample, however we cannot verify that the NFL Next Gen Stats receiving dataset contains every wide receiver play made during the 2025 NFL season. Therefore, we could be missing some unrecorded plays.
+
+# Codebook
+## Q1: How do rushing and passing success rates individually correlate with NFL team win percentages?
+| Column | Data type | Units | Description | Range / Allowed values | Missing values | Source |
+|---|---|---|---|---|---|---|
+| `season_type` | String | None | Identifies regular-season or postseason games. | `REG`, `WC`, `DIV`, `CON`, `SB` | Null | nflverse PBP |
+| `game_id` | String | None | Unique identifier for an NFL game. | NFL game ID | Null | nflverse PBP |
+| `home_team` | String | None | Abbreviation of the home team. | NFL team abbreviations | Null | nflverse PBP |
+| `away_team` | String | None | Abbreviation of the away team. | NFL team abbreviations | Null | nflverse PBP |
+| `home_score` | Integer | Points | Home team's score recorded for the play. | Nonnegative integers | Null | nflverse PBP |
+| `away_score` | Integer | Points | Away team's score recorded for the play. | Nonnegative integers | Null | nflverse PBP |
+| `posteam` | String | None | Team possessing the football. | NFL team abbreviations | Null | nflverse PBP |
+| `play_type` | String | None | Classification of the play. | `run`, `pass`, `punt`, etc. | Null | nflverse PBP |
+| `success` | Float | Binary | Indicates whether a play was successful according to nflverse's success metric. | 0, 1 | Null | nflverse PBP |
+| `win` | Integer | Binary | Indicates whether a team won a game. | 0 = Loss, 1 = Win | None after calculation | Derived in `eda.ipynb` |
+| `win_pct` | Float | Proportion | Proportion of regular-season games won by a team. | 0–1 | Null if unavailable | Derived in `eda.ipynb` |
+| `success_rate` | Float | Proportion | Average success value for a team's rushing or passing plays. | 0–1 | Null if unavailable | Derived in `eda.ipynb` |
+
+## Q2: How do yards to go and field position affect the average EPA of punting versus going for it on fourth down?
+| Column | Data type | Units | Description | Range / Allowed values | Missing values | Source |
+|---|---|---|---|---|---|---|
+| `season_type` | String | None | Identifies the season type. | `REG`, `WC`, `DIV`, `CON`, `SB` | Null | nflverse PBP |
+| `down` | Float | None | Current offensive down. | 1–4 | Null | nflverse PBP |
+| `play_type` | String | None | Type of play performed. | `run`, `pass`, `punt`, etc. | Null | nflverse PBP |
+| `ydstogo` | Float | Yards | Number of yards needed to achieve a first down or touchdown. | Nonnegative integers | Null | nflverse PBP |
+| `yardline_100` | Float | Yards | Distance from the opponent's end zone. | 0–100 | Null | nflverse PBP |
+| `epa` | Float | Expected points | Expected Points Added by the play. | Any real number | Null | nflverse PBP |
+| `decision` | String | None | Whether the team punted or attempted a fourth-down conversion. | `Punt`, `Go for it` | None after classification | Derived in `eda.ipynb` |
+| `avg_epa` | Float | Expected points | Average EPA for plays grouped by yards to go and decision. | Any real number | Null if unavailable | Derived in `eda.ipynb` |
+| `plays` | Integer | Plays | Number of observations within each group. | Positive integers | None after calculation | Derived in `eda.ipynb` |
+
+## Q3: How does average WR separation correlate with receiving yards per target, and does this relationship change based on route depth?
+| Column | Data type | Units | Description | Range / Allowed values | Missing values | Source |
+|---|---|---|---|---|---|---|
+| `player_gsis_id` | String | None | Unique identifier assigned to an NFL player. | Valid GSIS player IDs | Null | Next Gen Stats / renamed player stats ID |
+| `season` | Integer | Year | NFL season associated with the observation. | 2025 for Q3 | Null | Both datasets |
+| `week` | Integer | Week | NFL week associated with the observation. | 1–18 for regular-season weekly data | Null | Both datasets |
+| `player_position` | String | None | Player's listed position. | `WR` for filtered dataset | Null | Next Gen Stats |
+| `team_abbr` | String | None | Abbreviation of the player's team. | NFL team abbreviations | Null | Next Gen Stats |
+| `avg_separation` | Float | Yards | Average distance between the receiver and nearest defender at the relevant tracking point. | Nonnegative values | Null | Next Gen Stats |
+| `avg_intended_air_yards` | Float | Yards | Average intended air yards on the receiver's targets. | Numeric values, potentially negative | Null | Next Gen Stats |
+| `yards` | Integer | Yards | Total receiving yards recorded for a player during a week. | -2 to 225 | Null (1 observation) | Next Gen Stats |
+| `targets` | Integer | Targets | Number of times a receiver was targeted during a week. | 5–23 | No missing values | Next Gen Stats |
+| `receptions` | Integer | Receptions | Number of completed receptions during a week. | 0–16 | No missing values | Next Gen Stats |
+| `weekly_receiving_yards` | Numeric | Yards | Total receiving yards accumulated by a player during the week. | Numeric values | Null | Player stats, renamed |
+| `weekly_targets` | Numeric | Targets | Number of times a player was targeted during the week. | Nonnegative integers | Null | Player stats, renamed |
+| `yards_per_target` | Float | Yards per target | Receiving yards divided by the number of targets. | Numeric values | Undefined when targets = 0 | Derived in `eda.ipynb` |
