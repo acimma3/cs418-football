@@ -82,3 +82,57 @@
 | `weekly_receiving_yards` | Numeric | Yards | Total receiving yards accumulated by a player during the week. | Numeric values | Null | Player stats, renamed |
 | `weekly_targets` | Numeric | Targets | Number of times a player was targeted during the week. | Nonnegative integers | Null | Player stats, renamed |
 | `yards_per_target` | Float | Yards per target | Receiving yards divided by the number of targets. | Numeric values | Undefined when targets = 0 | Derived in `eda.ipynb` |
+
+# Part 6: People in the Data
+
+## Representation of People
+
+Our datasets represent NFL players and teams through their
+performance during games. The play-by-play dataset records
+individual plays and their outcomes, while the player statistics
+dataset contains performance measurements for individual players.
+
+The Next Gen Stats receiving dataset provides additional
+information about receivers, including average separation,
+receiving yards, and targets.
+
+These datasets primarily describe athletic performance rather
+than personal characteristics or experiences.
+
+## Missing or Underrepresented Groups
+
+Players with limited playing time or fewer opportunities may
+have fewer recorded observations in the datasets.
+
+Our third research question focuses specifically on wide
+receivers, so players from other positions are excluded
+from that analysis.
+
+Missing observations and incomplete tracking data may also
+affect the representation of certain players.
+
+## Potential Biases and Impacts
+
+Player performance can be influenced by factors such as
+team strategy, injuries, opponent strength, and playing
+opportunities.
+
+Statistics such as receiving yards and separation do not
+capture every aspect of a player's ability.
+
+Comparing players or teams without considering these factors
+could lead to misleading conclusions or unfair evaluations.
+
+## Ethical Considerations and Responsible Use
+
+Our analysis should be used to understand statistical
+relationships rather than make definitive judgments about
+individual players.
+
+We should acknowledge missing data, limitations in
+representation, and the influence of external factors
+when presenting our findings.
+
+These results should not be used as the sole basis for
+decisions about player ability, employment, or professional
+opportunities.
