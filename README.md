@@ -57,16 +57,16 @@ cs 418 football group
 - Reference [Datasheet](DATASHEET.md)
 - Our biggest limitation is that we can only include plays that were properly recorded by nflverse and NFL Next Gen Stats. We have verified that all 32 NFL teams have data from all 18 weeks of regular season play. However, we cannot guarantee that all stats from those games are correct or complete.
 
-## Main Findings (Narrative Analysis)
+# Main Findings (Narrative Analysis)
 - Reference [Narrative](narrative.ipynb)
 
 - Passing success rate has a stronger positive association with NFL team win % than rushing success rate, even after accounting for both variables in the same regression model.
 - <Finding 2>
 
-### Finding One: Passing Success is More Strongly Associated with Winning
+## Finding One: Passing Success is More Strongly Associated with Winning
 
 Passing success rate has a stronger positive association with team win % than rushing success rate. In our multiple linear regression using all 32 NFL teams during the 2025 regular season, passing success rate had a positive coefficient of 2.650 with p-value of 0.001, while rushing success rate had a coefficient of 0.482 with p-value of 0.605. Therefore, a 10% increase in passing success rate was associated with an estimated 26.5% increase in team win % while holding rushing success rate constant. On the other hand, the corresponding rushing success rate was only 4.8% and its confidence internal also included zero. These results suggest that passing success rate has a stronger independent association with win %. One possible alternative explanation is that teams who are behind may pass more often, while teams who are ahead will run more often. To check this, we repeated the regression using only first-half plays to calculate the success rates. Passing remained statistically significant with a coefficient of 2.002 and p-value of 0.017, while rushing remained statistically insignificant with a coefficient of 0.535 and p-value of 0.605. This suggests that the passing relationship is not entirely explained by late-game decisions.
 
 ![Passing Success is More Strongly Associated with Winning](figures/finding-one.png)
 
-### Finding Two
+## Finding Two
