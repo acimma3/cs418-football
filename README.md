@@ -70,3 +70,9 @@ Passing success rate has a stronger positive association with team win % than ru
 ![Passing Success is More Strongly Associated with Winning](figures/finding-one.png)
 
 ## Finding Two
+
+Finding Two: Going for It on Fourth Down Is Associated with Higher EPA Than Punting
+
+Going for it on fourth down has a positive association with expected points added (EPA) compared to punting. In our multiple linear regression using NFL play-by-play data from the 2021–2025 regular seasons, going for it had a positive coefficient of 0.244 with a p-value below 0.001 after controlling for yards to go and field position. This suggests that going for it was associated with approximately 0.244 additional EPA per play compared to punting when holding the other variables constant.
+
+One possible alternative explanation is that teams choose to go for it or punt depending on their field position and game situation. To investigate this further, we repeated the regression using only fourth-down plays between the opponent's 35- and 45-yard lines, where the decision between going for it and punting may be less obvious. In this smaller sample, going for it had a positive coefficient of 0.858 with a p-value below 0.001. Both regression models had 95% confidence intervals entirely above zero, indicating statistically significant positive associations. Overall, these results suggest that going for it on fourth down is associated with higher EPA than punting, particularly around the opponent's 40-yard line. However, these results do not establish that going for it causes higher EPA, since other game situations may influence both the decision and the outcome.
