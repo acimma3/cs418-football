@@ -61,7 +61,7 @@ cs 418 football group
 - Reference [Narrative](narrative.ipynb)
 
 - Passing success rate has a stronger positive association with NFL team win % than rushing success rate, even after accounting for both variables in the same regression model.
-- <Finding 2>
+- Going for it on fourth down is associated with higher expected points added (EPA) than punting, even after controlling for yards to go and field position, with a stronger estimated association near the opponent's 35–45 yard line.
 
 ## Finding One: Passing Success is More Strongly Associated with Winning
 
